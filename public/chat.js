@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(user => {
          handle = user['displayName'];
 
    function sendMessage(){
-     if(massage.value != ""){
+     if(message.value){
        socket.emit('chat', {
          message: message.value,
          handle: handle
