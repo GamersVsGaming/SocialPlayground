@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(user => {
          handle = user['displayName'];
 
    function sendMessage(){
-     if(message.value){
+     if(message.value.replace(/^\s+|\s+$/gm,'').length != 0){
        socket.emit('chat', {
          message: message.value,
          handle: handle
