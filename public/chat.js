@@ -11,11 +11,13 @@ firebase.auth().onAuthStateChanged(user => {
          handle = user['displayName'];
 
    function sendMessage(){
-     socket.emit('chat', {
-       message: message.value,
-       handle: handle
-     });
-     message.value='';
+     if(massage.value){
+       socket.emit('chat', {
+         message: message.value,
+         handle: handle
+       });
+       message.value='';
+    }
    }
 
    btn.addEventListener('click', () => {
