@@ -10,19 +10,26 @@ firebase.auth().onAuthStateChanged(user => {
          feedback = document.getElementById('feedback'),
          handle = user['displayName'];
 
-   btn.addEventListener('click', () => {
+   function sendMessage(){
      socket.emit('chat', {
        message: message.value,
        handle: handle
      });
      message.value='';
+   }
+
+   btn.addEventListener('click', () => {
+     sendMessage();
    });
 
-   message.addEventListener('keyup', () => {
+   message.addEventListener('keyup', e => {
      socket.emit('typing', {
        message: message.value,
        handle: handle
      });
+     if(e.keyCode === 13){
+       sendMessage();
+     }
    });
 
    socket.on('chat', (data) => {
