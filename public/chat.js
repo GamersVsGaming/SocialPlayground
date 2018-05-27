@@ -37,12 +37,14 @@ firebase.auth().onAuthStateChanged(user => {
    socket.on('chat', (data) => {
      feedback.innerHTML = '';
      output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
+     output.scrollTop = output.scrollHeight;
    });
 
    socket.on('typing', (data) => {
      data.message ?
      feedback.innerHTML = `<p><em>${data.handle} is typing</em></p>` :
      feedback.innerHTML = '';
+     output.scrollTop = output.scrollHeight;
    });
  }
 });
