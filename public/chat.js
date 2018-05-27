@@ -8,7 +8,7 @@ firebase.auth().onAuthStateChanged(user => {
          btn = document.getElementById('send'),
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
-         handle = user.displayName;
+         handle = user['displayName'];
 
    btn.addEventListener('click', () => {
      socket.emit('chat', {
