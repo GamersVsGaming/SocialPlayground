@@ -7,7 +7,9 @@ const message = document.getElementById('message'),
       output = document.getElementById('output'),
       feedback = document.getElementById('feedback'),
       handle = firebase.auth().onAuthStateChanged(user => {
-        user ? return user.email : false;
+        if(user){
+          return user.email;
+        }
       });
 
 btn.addEventListener('click', () => {
