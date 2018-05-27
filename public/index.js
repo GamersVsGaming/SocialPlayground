@@ -20,7 +20,7 @@ signup.addEventListener("click", e =>{
   const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
   promise.then(u => {
     user = auth.currentUser;
-    user.updateProfile({displayName: username});
+    user.updateProfile({displayName: username.value});
   });
   promise.catch(e => console.log(e.message));
 });
