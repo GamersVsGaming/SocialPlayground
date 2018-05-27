@@ -6,7 +6,7 @@ const message = document.getElementById('message'),
       btn = document.getElementById('send'),
       output = document.getElementById('output'),
       feedback = document.getElementById('feedback'),
-      handle = firebase.auth().currentUser;
+      handle = firebase.auth().currentUser['email'];
 
 btn.addEventListener('click', () => {
   socket.emit('chat', {
