@@ -16,8 +16,8 @@ firebase.auth().onAuthStateChanged(user => {
          message: message.value,
          handle: handle
        });
-       message.value='';
     }
+    message.value='';
    }
 
    btn.addEventListener('click', () => {
