@@ -1,4 +1,4 @@
-const port = 'http://localhost:5000';
+const port = window.location.hostname;
 const socket = io.connect(port);
 
 const message = document.getElementById('message'),
