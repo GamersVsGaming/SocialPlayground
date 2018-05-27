@@ -1,16 +1,17 @@
 const port = window.location.hostname;
+//const port = 'localhost:5000';
 const socket = io.connect(port);
 
 const message = document.getElementById('message'),
-      handle = document.getElementById('handle'),
       btn = document.getElementById('send'),
       output = document.getElementById('output'),
-      feedback = document.getElementById('feedback');
+      feedback = document.getElementById('feedback'),
+      handle = firebase.auth().currentUser;
 
 btn.addEventListener('click', () => {
   socket.emit('chat', {
     message: message.value,
-    handle: handle.value
+    handle: handle
   });
   message.value='';
 });
@@ -18,7 +19,7 @@ btn.addEventListener('click', () => {
 message.addEventListener('keyup', () => {
   socket.emit('typing', {
     message: message.value,
-    handle: handle.value
+    handle: handle
   });
 });
 

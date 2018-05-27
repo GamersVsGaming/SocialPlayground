@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Server</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="firebase.js"></script>
     <link href="styles.css" rel="stylesheet" />
   </head>
   <body>
+    <div id="auth">
+      <input id="txtEmail" type="email" placeholder="Email" />
+      <input id="txtPassword" type="password" placeholder="Password" />
+
+      <button id="btnLogin"> Login </button>
+      <button id="btnSignUp">Sign Up </button>
+    </div>
     <div id="socket-chat">
       <h2>Socket Chat</h2>
       <div id="chat-window">
@@ -17,7 +26,9 @@
         <input id="handle" type="text" placeholder="Handle" />
         <input id="message" type="text" placeholder="Message" />
         <button id="send">Send</button>
+        <button id="btnLogout"> Logout </button>
       </div>
-    <script src="/chat.js"></script>
+      <script src="index.js"></script>
+      <script src="chat.js"></script>
   </body>
 </html>
