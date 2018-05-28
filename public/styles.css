@@ -62,6 +62,7 @@ h2{
 #input-area{
     margin-bottom: 0;
     margin-top: auto;
+    margin-right: auto;
 }
 
 #output strong{
