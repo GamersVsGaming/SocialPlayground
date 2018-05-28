@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(user => {
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
          handle = user['displayName'];
-         output.scrollTop = output.scrollHeight;
+         output.scrollTop(999);
 
    function sendMessage(){
      if(message.value.replace(/^\s+|\s+$/gm,'').length != 0){
