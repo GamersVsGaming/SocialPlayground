@@ -31,6 +31,7 @@ h2{
 }
 
 #chat-window{
+    height: inherit;
     overflow: auto;
     background: #fff;
 }
