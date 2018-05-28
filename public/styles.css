@@ -6,8 +6,9 @@ body{
 h2{
     font-size: 18px;
     padding: 10px 20px;
-    color: #fff;
-    border-bottom: 1px solid #ddd;
+    color: #575ed8;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
 }
 
 #auth{
