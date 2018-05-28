@@ -9,7 +9,6 @@ firebase.auth().onAuthStateChanged(user => {
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
          handle = user['displayName'];
-         output.scrollTop = 999;
 
    function sendMessage(){
      if(message.value.replace(/^\s+|\s+$/gm,'').length != 0){
@@ -19,6 +18,10 @@ firebase.auth().onAuthStateChanged(user => {
        });
     }
     message.value='';
+   }
+
+   function gotoBottom(el){
+     el.scrollTop = el.scrollHeight - el.clientHeight;
    }
 
    btn.addEventListener('click', () => {
@@ -38,12 +41,14 @@ firebase.auth().onAuthStateChanged(user => {
    socket.on('chat', (data) => {
      feedback.innerHTML = '';
      output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
+     gotoBottom(output);
    });
 
    socket.on('typing', (data) => {
      data.message ?
      feedback.innerHTML = `<p><em>${data.handle} is typing</em></p>` :
      feedback.innerHTML = '';
+     gotoBottom(output);
    });
  }
 });
