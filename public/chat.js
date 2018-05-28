@@ -8,6 +8,7 @@ firebase.auth().onAuthStateChanged(user => {
          btn = document.getElementById('send'),
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
+         chat = document.getElementById('chat-window');
          handle = user['displayName'];
 
    function sendMessage(){
@@ -41,14 +42,14 @@ firebase.auth().onAuthStateChanged(user => {
    socket.on('chat', (data) => {
      feedback.innerHTML = '';
      output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
-     gotoBottom(output);
+     gotoBottom(chat);
    });
 
    socket.on('typing', (data) => {
      data.message ?
      feedback.innerHTML = `<p><em>${data.handle} is typing</em></p>` :
      feedback.innerHTML = '';
-     gotoBottom(output);
+     gotoBottom(chat);
    });
  }
 });
