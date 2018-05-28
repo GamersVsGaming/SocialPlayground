@@ -64,7 +64,8 @@ h2{
     margin-top: auto;
     position: absolute;
     bottom: 0px;
-    width: 600px;
+    width: 75vw;
+    max-width: 600px;
 }
 
 #output strong{
