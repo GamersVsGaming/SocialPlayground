@@ -22,6 +22,7 @@ h2{
 #socket-chat{
     display: none;
     max-width: 600px;
+    margin: 0 auto;
     border: 1px solid #ddd;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.05);
     border-radius: 2px;
