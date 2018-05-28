@@ -20,6 +20,7 @@ h2{
 }
 
 #socket-chat{
+    height: 90vh;
     display: none;
     max-width: 600px;
     margin: 0 auto;
@@ -30,7 +31,6 @@ h2{
 }
 
 #chat-window{
-    height: 70vh;
     overflow: auto;
     background: #fff;
 }
