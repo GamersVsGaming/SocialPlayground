@@ -9,6 +9,7 @@ firebase.auth().onAuthStateChanged(user => {
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
          handle = user['displayName'];
+         output.scrollTop = output.scrollHeight;
 
    function sendMessage(){
      if(message.value.replace(/^\s+|\s+$/gm,'').length != 0){
@@ -37,14 +38,12 @@ firebase.auth().onAuthStateChanged(user => {
    socket.on('chat', (data) => {
      feedback.innerHTML = '';
      output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
-     output.scrollTop = output.scrollHeight;
    });
 
    socket.on('typing', (data) => {
      data.message ?
      feedback.innerHTML = `<p><em>${data.handle} is typing</em></p>` :
      feedback.innerHTML = '';
-     output.scrollTop = output.scrollHeight;
    });
  }
 });
