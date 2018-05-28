@@ -62,6 +62,9 @@ h2{
 #input-area{
     margin-bottom: 0;
     margin-top: auto;
+    position: absolute;
+    bottom: 0px;
+    width: 600px;
 }
 
 #output strong{
