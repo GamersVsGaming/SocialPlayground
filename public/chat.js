@@ -62,6 +62,6 @@ firebase.auth().onAuthStateChanged(user => {
    });
  }else{
    document.getElementById('output').innerHTML = '';
-   io.disconnect();
+   socket.disconnect();
  }
 });
