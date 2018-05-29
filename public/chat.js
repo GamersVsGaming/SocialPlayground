@@ -1,5 +1,6 @@
 firebase.auth().onAuthStateChanged(user => {
  if(user){
+   // Change port for local or live testing
    const port = window.location.hostname;
    //const port = 'localhost:5000';
    const socket = io.connect(port);
