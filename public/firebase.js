@@ -14,3 +14,5 @@ const db_root = db.ref();
 const rooms = db_root.child('Rooms');
 const room_global = rooms.child('Global');
 const global_messages = room_global.child('Messages');
+
+const servertime = db.ServerValue.TIMESTAMP;

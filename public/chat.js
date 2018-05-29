@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(user => {
          handle: handle
        });
 
-       global_messages.push({Name: handle, Message: message.value}).key;
+       global_messages.push({Name: handle, Message: message.value, Time: serverTime}).key;
     }
     message.value='';
    }
