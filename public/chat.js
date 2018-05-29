@@ -12,12 +12,20 @@ firebase.auth().onAuthStateChanged(user => {
          chat = document.getElementById('chat-window');
          handle = user['displayName'];
 
+    global_messages.on("child_added", data => {
+      let handle = data.child("Name").val();
+      let message = data.child("Message").val();
+      output.innerHTML += `<p><strong>${handle}:</strong>${message}</p>`;
+    });
+
    function sendMessage(){
      if(message.value.replace(/^\s+|\s+$/gm,'').length != 0){
        socket.emit('chat', {
          message: message.value,
          handle: handle
        });
+
+       global_messages.push({Name: handle, Message: message.value}).key;
     }
     message.value='';
    }
@@ -42,7 +50,6 @@ firebase.auth().onAuthStateChanged(user => {
 
    socket.on('chat', (data) => {
      feedback.innerHTML = '';
-     output.innerHTML += `<p><strong>${data.handle}:</strong>${data.message}</p>`;
      gotoBottom(chat);
    });
 
