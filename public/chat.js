@@ -59,5 +59,7 @@ firebase.auth().onAuthStateChanged(user => {
      feedback.innerHTML = '';
      gotoBottom(chat);
    });
+ }else{
+   document.getElementById('output').innerHTML = '';
  }
 });
