@@ -15,4 +15,4 @@ const rooms = db_root.child('Rooms');
 const room_global = rooms.child('Global');
 const global_messages = room_global.child('Messages');
 
-const servertime = db.ServerValue.TIMESTAMP;
+const servertime = firebase.database.ServerValue.TIMESTAMP;
