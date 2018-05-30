@@ -5,7 +5,8 @@ const email = document.querySelector("#txtEmail"),
       signup = document.querySelector("#btnSignUp"),
       logout = document.querySelector("#btnLogout"),
       authForm = document.querySelector("#auth"),
-      chat = document.querySelector("#socket-chat");
+      chat = document.querySelector("#socket-chat"),
+      evt = new Event('user-updated');
 
 login.addEventListener("click", e => {
   const auth = firebase.auth();
@@ -20,7 +21,10 @@ signup.addEventListener("click", e =>{
   auth.createUserWithEmailAndPassword(email.value, password.value)
   .then(u => {
     user = auth.currentUser;
-    user.updateProfile({displayName: username.value});
+    user.updateProfile({displayName: username.value})
+    .then( () => {
+      document.dispatchEvent(evt);
+    });
   })
   .catch(e => console.log(e.message));
 });
