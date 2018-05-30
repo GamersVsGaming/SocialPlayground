@@ -14,9 +14,9 @@ firebase.auth().onAuthStateChanged(user => {
          handle = user['displayName'];
 
     global_messages.orderByChild('Time').on("child_added", data => {
-      let handle = data.child("Name").val();
+      let username = data.child("Name").val();
       let message = data.child("Message").val();
-      output.innerHTML += `<p><strong>${handle}:</strong>${message}</p>`;
+      output.innerHTML += `<p><strong>${username}:</strong>${message}</p>`;
     });
 
    function sendMessage(){
