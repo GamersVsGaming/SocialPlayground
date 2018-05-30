@@ -22,9 +22,6 @@ signup.addEventListener("click", e =>{
     user = auth.currentUser;
     user.updateProfile({displayName: username.value});
   })
-  .then( () => {
-    auth.signInWithEmailAndPassword(email.value, password.value);
-  })
   .catch(e => console.log(e.message));
 });
 
