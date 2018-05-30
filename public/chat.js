@@ -1,10 +1,12 @@
 // Change port for local or live testing
-const port = window.location.hostname;
-//const port = 'localhost:5000';
+//const port = window.location.hostname;
+const port = 'localhost:5000';
 const socket = io.connect(port);
 
 firebase.auth().onAuthStateChanged(user => {
  if(user){
+
+   firebase.auth().currentUser.reload();
 
    const message = document.getElementById('message'),
          btn = document.getElementById('send'),
