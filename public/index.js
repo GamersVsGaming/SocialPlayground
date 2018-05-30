@@ -17,8 +17,8 @@ login.addEventListener("click", e => {
 signup.addEventListener("click", e =>{
   const auth = firebase.auth();
 
-  const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-  promise.then(u => {
+  auth.createUserWithEmailAndPassword(email.value, password.value)
+  .then(u => {
     user = auth.currentUser;
     user.updateProfile({displayName: username.value});
   })
