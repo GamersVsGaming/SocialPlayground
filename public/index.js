@@ -21,8 +21,8 @@ signup.addEventListener("click", e =>{
   promise.then(u => {
     user = auth.currentUser;
     user.updateProfile({displayName: username.value});
-  });
-  promise.catch(e => console.log(e.message));
+  })
+  .catch(e => console.log(e.message));
 });
 
 logout.addEventListener("click", e => {
