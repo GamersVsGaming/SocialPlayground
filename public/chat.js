@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
          output = document.getElementById('output'),
          feedback = document.getElementById('feedback'),
          chat = document.getElementById('chat-window');
-         handle = user['displayName'];
+         handle = firebase.auth().currentUser['displayName'];
 
     global_messages.orderByChild('Time').on("child_added", data => {
       let username = data.child("Name").val();
