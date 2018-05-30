@@ -10,8 +10,8 @@ const email = document.querySelector("#txtEmail"),
 login.addEventListener("click", e => {
   const auth = firebase.auth();
 
-  const promise = auth.signInWithEmailAndPassword(email.value, password.value);
-  promise.catch(e => console.log(e.message));
+  auth.signInWithEmailAndPassword(email.value, password.value)
+  .catch(e => console.log(e.message));
 });
 
 signup.addEventListener("click", e =>{
@@ -21,6 +21,9 @@ signup.addEventListener("click", e =>{
   .then(u => {
     user = auth.currentUser;
     user.updateProfile({displayName: username.value});
+  })
+  .then( () => {
+    auth.signInWithEmailAndPassword(email.value, password.value);
   })
   .catch(e => console.log(e.message));
 });
